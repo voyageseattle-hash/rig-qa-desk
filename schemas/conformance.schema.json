@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "asset_sha256", "source", "scope", "status"],
+  "properties": {
+    "schema_version": { "const": 1 }, "asset_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "source": { "const": "Khronos glTF Validator" }, "scope": { "type": "string", "maxLength": 160 },
+    "status": { "enum": ["complete", "timeout", "unavailable"] },
+    "validator_version": { "type": "string", "maxLength": 80 }, "external_resources": { "const": "blocked" },
+    "truncated": { "type": "boolean" },
+    "counts": { "type": "object", "additionalProperties": false, "required": ["errors", "warnings", "infos", "hints"],
+      "properties": { "errors": { "type": "integer", "minimum": 0 }, "warnings": { "type": "integer", "minimum": 0 }, "infos": { "type": "integer", "minimum": 0 }, "hints": { "type": "integer", "minimum": 0 } } },
+    "extensions": { "type": "array", "maxItems": 8192, "items": { "type": "object", "additionalProperties": false, "required": ["name", "supported"], "properties": { "name": { "type": "string", "maxLength": 256 }, "supported": { "type": "boolean" } } } },
+    "messages": { "type": "array", "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["id", "code", "severity", "location", "context"], "properties": {
+      "id": { "type": "string", "pattern": "^K[0-9]{4}$" }, "code": { "type": "string", "pattern": "^[A-Z0-9_]+$", "maxLength": 160 },
+      "severity": { "enum": ["error", "warning", "info", "hint"] }, "location": { "type": "string", "maxLength": 4096 },
+      "context": { "oneOf": [ { "type": "null" }, { "type": "object", "additionalProperties": false,
+        "required": ["node", "skin", "parents", "joint_count", "parent_scales", "parent_matrices", "animated_nodes"], "properties": {
+          "node": { "type": "integer", "minimum": 0 }, "skin": { "type": "integer", "minimum": 0 }, "joint_count": { "type": "integer", "minimum": 0 },
+          "parents": { "type": "array", "maxItems": 8192, "items": { "type": "integer", "minimum": 0 } },
+          "animated_nodes": { "type": "array", "maxItems": 8192, "items": { "type": "integer", "minimum": 0 } },
+          "parent_scales": { "type": "array", "maxItems": 8192, "items": { "anyOf": [ { "type": "null" }, { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } } ] } },
+          "parent_matrices": { "type": "array", "maxItems": 8192, "items": { "anyOf": [ { "type": "null" }, { "type": "array", "minItems": 16, "maxItems": 16, "items": { "type": "number" } } ] } }
+        } } ] }
+    } } }
+  },
+  "allOf": [{ "if": { "properties": { "status": { "const": "complete" } } }, "then": { "required": ["validator_version", "external_resources", "truncated", "counts", "extensions", "messages"] }, "else": { "maxProperties": 5 } }]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "type": "rig-qa-shared-source",
+  "files": [
+    {
+      "path": "fixtures/encode.mjs",
+      "bytes": 813,
+      "sha256": "3636707242c11e5ee8574507fb66047997107762a92bd4bb01e800caeba1d829"
+    },
+    {
+      "path": "fixtures/workflow.mjs",
+      "bytes": 3618,
+      "sha256": "7e0750ef46ee059008618be129a815d77f1476cbac4130e3583c802550caa76e"
+    },
+    {
+      "path": "public/workflow-visual.mjs",
+      "bytes": 5930,
+      "sha256": "184533977a777592ab5ee4192f19628c520967aae599d33592e906eeb0925f20"
+    },
+    {
+      "path": "schemas/advice.schema.json",
+      "bytes": 1571,
+      "sha256": "e9cd393fb50a1f5097eefc22b74a78d4993a14867a64df419b9f6f9d3a41049c"
+    },
+    {
+      "path": "schemas/inspection.schema.json",
+      "bytes": 2164,
+      "sha256": "57179d4b2aebfee2cc55f8bb86c720a3c8b865e10fa90d29c4c6cdda13f7e7dc"
+    },
+    {
+      "path": "src/inspect.mjs",
+      "bytes": 23370,
+      "sha256": "79edf722027b4146646d715e572250194b540e35854616b0a640e7cc5b6cf3e3"
+    },
+    {
+      "path": "src/recommend-core.mjs",
+      "bytes": 15648,
+      "sha256": "172af21a388731cf61bf82b2353802498e2d889f877a90cfb35a7d8e99960078"
+    },
+    {
+      "path": "src/workflow-visual.mjs",
+      "bytes": 1941,
+      "sha256": "7084032e36518a7d93977be897a896987cbf3ac1597770a8cb0d8968c7604ca1"
+    }
+  ]
+}

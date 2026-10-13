@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "date_pacific": "2026-10-12",
+  "provider": "nebius",
+  "requested_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "response_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "http_status": 200,
+  "requested_at": "2026-10-12T19:57:08.412Z",
+  "elapsed_ms": 6287,
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1256,
+    "prompt_tokens": 1115,
+    "total_tokens": 2371,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": null
+  },
+  "inspection": {
+    "schema_version": 1,
+    "asset_sha256": "78bc53aeb2f6d50bccf69cc64ea03e6033ca7ce203c9d3d9b1b3252648041749",
+    "byte_length": 1532,
+    "inspector_version": "1.0.0",
+    "coverage": {
+      "checked": [
+        "glb_structure",
+        "node_skin_references",
+        "node_cycles",
+        "accessor_layout",
+        "finite_supported_values",
+        "joint_indices_per_skin_instance",
+        "animation_references_shapes_times"
+      ],
+      "not_checked": [
+        "physical_anatomical_correctness",
+        "evaluated_deformation",
+        "runtime_engine_behavior",
+        "full_gltf_schema_conformance",
+        "texture_material_content",
+        "weight_normalization",
+        "quaternion_normalization"
+      ]
+    },
+    "summary": {
+      "nodes": 3,
+      "skins": 1,
+      "animations": 1
+    },
+    "findings": [
+      {
+        "id": "F0001",
+        "code": "JOINT_INDEX_RANGE",
+        "severity": "error",
+        "location": "/nodes/2",
+        "message": "A joint index exceeds the joint list of this mesh instance skin.",
+        "evidence": {
+          "primitive": 0,
+          "skin": 0,
+          "element": 0,
+          "component": 0,
+          "value": 7,
+          "joint_count": 2
+        }
+      }
+    ]
+  },
+  "asset_sha256": "78bc53aeb2f6d50bccf69cc64ea03e6033ca7ce203c9d3d9b1b3252648041749",
+  "report_sha256": "b90f3dc5b653ed9493ba7abb81395f405093d7d7afb34b8ab5afe27075041dca",
+  "ai_suggestions": {
+    "schema_version": 1,
+    "asset_sha256": "78bc53aeb2f6d50bccf69cc64ea03e6033ca7ce203c9d3d9b1b3252648041749",
+    "summary": "A joint index of 7 is referenced in node 2, but the skin only defines 2 joints, causing an out‑of‑range error.",
+    "limitations": [
+      "AI suggestions are unverified and are not proof of asset correctness.",
+      "Only the listed deterministic checks were performed; unlisted and visual checks remain unverified."
+    ],
+    "recommendations": [
+      {
+        "id": "R0001",
+        "finding_ids": [
+          "F0001"
+        ],
+        "priority": "high",
+        "action": "review_numeric_data",
+        "rationale": "The accessor element value 7 exceeds the joint count of 2 defined for the skin at node 2, indicating an invalid joint index that could cause runtime failures when animating or skinning the model.",
+        "uncertainty": "This check confirms the index range violation but cannot guarantee that the underlying joint hierarchy or skin configuration is otherwise correct."
+      }
+    ]
+  },
+  "tested_live_adapter_sha256": "c6f2dfa2a2d631989fe712e580882d5abbe9f1d0d009e874d0fe9ef870df5431",
+  "revalidated_adapter_sha256": "cad025c380a40e33d9a006e5fdff181e196fc1c27d1be7b83ae4adbc60ddf2e6",
+  "original_adapter_result": "ADVICE_UNSUPPORTED_false_positive_on_cannot_guarantee",
+  "corrected_adapter_validation": "passed_offline_on_unchanged_real_response_no_new_provider_request",
+  "agent_factual_review": "Index 7 is outside a two-entry joint list (valid 0 and 1). Rationale correctly describes this measured range violation; potential runtime impact remains a possibility, not demonstrated engine behavior. No repair is claimed.",
+  "owner_human_review": "not_yet_given_for_this_distinct_recommendation",
+  "approved_calls": 1,
+  "calls_used": 1,
+  "approved_max_usd": 0.02,
+  "estimated_actual_token_cost_usd": 0.00036834,
+  "actual_invoice_charge_usd": null,
+  "automatic_retries": 0,
+  "original_response_modified": false,
+  "repair_applied": false,
+  "credentials_in_evidence": false
+}

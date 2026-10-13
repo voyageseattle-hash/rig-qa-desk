@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "date_pacific": "2026-10-12",
+  "fixture": "Owned24bone procedural ribbon,2controlled export faults,23timestamps",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "response_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "http_status": 200,
+  "requested_at": "2026-10-13T00:27:24.867Z",
+  "elapsed_ms": 7577,
+  "usage": {
+    "prompt_tokens": 1413,
+    "completion_tokens": 1632,
+    "total_tokens": 3045
+  },
+  "estimated_token_cost_usd": 0.00047646000000000006,
+  "invoice_verified": false,
+  "tested_adapter_sha256": "d4801e85f31a157c4cf15448fcc329c431766b13f54a57709f04399c62df808b",
+  "inspection": {
+    "schema_version": 1,
+    "asset_sha256": "16d2407c563db0c666f9f851007ae92d4da2836163adc45088c844e017b998f1",
+    "byte_length": 7924,
+    "inspector_version": "1.0.0",
+    "coverage": {
+      "checked": [
+        "glb_structure",
+        "node_skin_references",
+        "node_cycles",
+        "accessor_layout",
+        "finite_supported_values",
+        "joint_indices_per_skin_instance",
+        "animation_references_shapes_times"
+      ],
+      "not_checked": [
+        "physical_anatomical_correctness",
+        "evaluated_deformation",
+        "runtime_engine_behavior",
+        "full_gltf_schema_conformance",
+        "texture_material_content",
+        "weight_normalization",
+        "quaternion_normalization"
+      ]
+    },
+    "summary": {
+      "nodes": 25,
+      "skins": 1,
+      "animations": 1
+    },
+    "findings": [
+      {
+        "id": "F0001",
+        "code": "JOINT_INDEX_RANGE",
+        "severity": "error",
+        "location": "/nodes/24",
+        "message": "A joint index exceeds the joint list of this mesh instance skin.",
+        "evidence": {
+          "primitive": 0,
+          "skin": 0,
+          "element": 0,
+          "component": 0,
+          "value": 24,
+          "joint_count": 24
+        }
+      },
+      {
+        "id": "F0002",
+        "code": "ANIMATION_OUTPUT_COUNT",
+        "severity": "error",
+        "location": "/animations/0/samplers/0/output",
+        "message": "Animation output count does not match input count and interpolation.",
+        "evidence": {
+          "expected": 23,
+          "actual": 22,
+          "channel": 0,
+          "target_node": 0,
+          "target_path": "translation",
+          "input_accessor": 6,
+          "output_accessor": 7,
+          "interpolation": "LINEAR"
+        }
+      }
+    ]
+  },
+  "ai_suggestions": {
+    "schema_version": 1,
+    "asset_sha256": "16d2407c563db0c666f9f851007ae92d4da2836163adc45088c844e017b998f1",
+    "summary": "One joint index is out of range and an animation output count mismatches its expected value, both flagged as errors in the GLB inspection.",
+    "limitations": [
+      "AI suggestions are unverified and are not proof of asset correctness.",
+      "Only the listed deterministic checks were performed; unlisted and visual checks remain unverified."
+    ],
+    "recommendations": [
+      {
+        "id": "R0001",
+        "finding_ids": [
+          "F0001"
+        ],
+        "priority": "high",
+        "action": "review_numeric_data",
+        "rationale": "The joint index 24 is reported as out of range for a skin with 24 joints (valid indices 0‑23). Investigate the source of the erroneous index, verify the joint list order, and correct any export settings that generate an out‑of‑range reference.",
+        "uncertainty": "The report cannot confirm whether the index error originates from the model authoring tool or from an incorrect skin binding configuration."
+      },
+      {
+        "id": "R0002",
+        "finding_ids": [
+          "F0002"
+        ],
+        "priority": "high",
+        "action": "review_animation_channel",
+        "rationale": "The animation output count (22) does not match the expected count (23) for the translation channel of node 0, with interpolation set to LINEAR. Check the mapping of the output accessor to the intended track and re‑export the animation with correct channel settings.",
+        "uncertainty": "The review cannot determine if the mismatch is due to a missing keyframe, an incorrect accessor index, or a different interpolation mode."
+      }
+    ]
+  },
+  "factual_quality": "Agent review passed limited numeric explanation and source/export review rubric; no guarantee of future advice",
+  "human_review": "owner pending; demonstration decisions start unset",
+  "private_character_assets_included": false,
+  "automatic_retries": 0
+}

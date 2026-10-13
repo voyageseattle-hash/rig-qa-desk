@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "asset_sha256": "17176441029787f66bb3a6cfbca970357f425783a0d2018410d2e4cdaba88f45",
+  "report_sha256": "140c654b2220fa8d716532c6d53eb53d3786e0dcb1a68e8dd71ba0e2b1e87dae",
+  "advice_sha256": "f96040cc12dd1fa5bb1fb6c5caff9b0675b7e38bf590ecdc69b81ba13f8a85f6",
+  "inspection": {
+    "schema_version": 1,
+    "asset_sha256": "17176441029787f66bb3a6cfbca970357f425783a0d2018410d2e4cdaba88f45",
+    "byte_length": 1532,
+    "inspector_version": "1.0.0",
+    "coverage": {
+      "checked": [
+        "glb_structure",
+        "node_skin_references",
+        "node_cycles",
+        "accessor_layout",
+        "finite_supported_values",
+        "joint_indices_per_skin_instance",
+        "animation_references_shapes_times"
+      ],
+      "not_checked": [
+        "physical_anatomical_correctness",
+        "evaluated_deformation",
+        "runtime_engine_behavior",
+        "full_gltf_schema_conformance",
+        "texture_material_content",
+        "weight_normalization",
+        "quaternion_normalization"
+      ]
+    },
+    "summary": {
+      "nodes": 3,
+      "skins": 1,
+      "animations": 1
+    },
+    "findings": [
+      {
+        "id": "F0001",
+        "code": "ANIMATION_TIME_ORDER",
+        "severity": "error",
+        "location": "/animations/0/samplers/0/input",
+        "message": "Animation times must be finite, nonnegative, and strictly increasing.",
+        "evidence": {
+          "element": 1,
+          "value": 0
+        }
+      }
+    ]
+  },
+  "ai_suggestions": {
+    "schema_version": 1,
+    "asset_sha256": "17176441029787f66bb3a6cfbca970357f425783a0d2018410d2e4cdaba88f45",
+    "summary": "The animation sampler at /animations/0/samplers/0/input contains a time value of 0, which violates the rule that times must be finite, non‑negative, and strictly increasing. This indicates a potential ordering error that should be examined.",
+    "limitations": [
+      "AI suggestions are unverified and are not proof of asset correctness.",
+      "Only the listed deterministic checks were performed; unlisted and visual checks remain unverified."
+    ],
+    "recommendations": [
+      {
+        "id": "R0001",
+        "finding_ids": [
+          "F0001"
+        ],
+        "priority": "high",
+        "action": "review_animation_timing",
+        "rationale": "The animation sampler at /animations/0/samplers/0/input contains a time value of 0, which violates the rule that times must be finite, non‑negative, and strictly increasing. This indicates a potential ordering error that should be examined.",
+        "uncertainty": "It cannot be determined whether the zero value is a data entry mistake or an intentional placeholder; further inspection of the animation data is needed."
+      }
+    ]
+  },
+  "provider": {
+    "mode": "recorded",
+    "provider": "nebius",
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "response_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "requested_at": "2026-10-12T18:41:23.062Z",
+    "replayed_at": "2026-10-12T19:27:33.010Z",
+    "recording_evidence_sha256": "d49bb0c354dc18ec37545e351e177988009035ea3d46e16b8935ef0e26149ae5"
+  },
+  "human_review": {
+    "reviewed_at": "2026-10-12T19:39:12.896Z",
+    "decisions": [
+      {
+        "recommendation_id": "R0001",
+        "decision": "defer"
+      }
+    ],
+    "repair_approved": false
+  },
+  "limitation": "Review records suggestions only. No original asset was changed. No mesh, physics or game-readiness certification."
+}

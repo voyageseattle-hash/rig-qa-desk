@@ -1,0 +1,12 @@
+{
+  "date_pacific": "2026-10-12",
+  "unit_tests_passed": 71,
+  "browser_tests_passed": 7,
+  "provider_tests": "labeled mocks and recorded playback; no paid inference",
+  "final_live_adapter_sha256": "d4801e85f31a157c4cf15448fcc329c431766b13f54a57709f04399c62df808b",
+  "source_manifest": "Final allowlisted bundle supplies full-file hashes; independent final tests/recording receipt accompanies the candidate outside source to avoid circular manifest references",
+  "real_call": "LIVE-WORKFLOW-2026-10-12.json",
+  "private_assets_excluded": true,
+  "publication": false,
+  "submission": false
+}

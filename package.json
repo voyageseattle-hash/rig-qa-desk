@@ -1,0 +1,27 @@
+{
+  "name": "rig-qa-desk",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "demo": "node scripts/demo.mjs",
+    "demo:mock": "node src/server.mjs --mock",
+    "fixtures": "node fixtures/generate.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:browser": "playwright test",
+    "bundle": "node scripts/bundle.mjs",
+    "verify:bundle": "node scripts/bundle.mjs --verify"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "gltf-validator": "2.0.0-dev.3.10"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0"
+  }
+}

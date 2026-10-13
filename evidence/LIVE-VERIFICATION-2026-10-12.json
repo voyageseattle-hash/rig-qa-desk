@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "date_pacific": "2026-10-12",
+  "provider": "nebius",
+  "requested_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "response_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "endpoint": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "requested_at": "2026-10-12T18:41:23.062Z",
+  "http_status": 200,
+  "elapsed_ms": 5902,
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1216,
+    "prompt_tokens": 1111,
+    "total_tokens": 2327,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": null
+  },
+  "report_sha256": "140c654b2220fa8d716532c6d53eb53d3786e0dcb1a68e8dd71ba0e2b1e87dae",
+  "asset_sha256": "17176441029787f66bb3a6cfbca970357f425783a0d2018410d2e4cdaba88f45",
+  "tested_adapter_sha256": "c6f2dfa2a2d631989fe712e580882d5abbe9f1d0d009e874d0fe9ef870df5431",
+  "inspection": {
+    "schema_version": 1,
+    "asset_sha256": "17176441029787f66bb3a6cfbca970357f425783a0d2018410d2e4cdaba88f45",
+    "byte_length": 1532,
+    "inspector_version": "1.0.0",
+    "coverage": {
+      "checked": [
+        "glb_structure",
+        "node_skin_references",
+        "node_cycles",
+        "accessor_layout",
+        "finite_supported_values",
+        "joint_indices_per_skin_instance",
+        "animation_references_shapes_times"
+      ],
+      "not_checked": [
+        "physical_anatomical_correctness",
+        "evaluated_deformation",
+        "runtime_engine_behavior",
+        "full_gltf_schema_conformance",
+        "texture_material_content",
+        "weight_normalization",
+        "quaternion_normalization"
+      ]
+    },
+    "summary": {
+      "nodes": 3,
+      "skins": 1,
+      "animations": 1
+    },
+    "findings": [
+      {
+        "id": "F0001",
+        "code": "ANIMATION_TIME_ORDER",
+        "severity": "error",
+        "location": "/animations/0/samplers/0/input",
+        "message": "Animation times must be finite, nonnegative, and strictly increasing.",
+        "evidence": {
+          "element": 1,
+          "value": 0
+        }
+      }
+    ]
+  },
+  "ai_suggestions": {
+    "schema_version": 1,
+    "asset_sha256": "17176441029787f66bb3a6cfbca970357f425783a0d2018410d2e4cdaba88f45",
+    "summary": "The animation sampler at /animations/0/samplers/0/input contains a time value of 0, which violates the rule that times must be finite, non‑negative, and strictly increasing. This indicates a potential ordering error that should be examined.",
+    "limitations": [
+      "AI suggestions are unverified and are not proof of asset correctness.",
+      "Only the listed deterministic checks were performed; unlisted and visual checks remain unverified."
+    ],
+    "recommendations": [
+      {
+        "id": "R0001",
+        "finding_ids": [
+          "F0001"
+        ],
+        "priority": "high",
+        "action": "review_animation_timing",
+        "rationale": "The animation sampler at /animations/0/samplers/0/input contains a time value of 0, which violates the rule that times must be finite, non‑negative, and strictly increasing. This indicates a potential ordering error that should be examined.",
+        "uncertainty": "It cannot be determined whether the zero value is a data entry mistake or an intentional placeholder; further inspection of the animation data is needed."
+      }
+    ]
+  },
+  "local_schema_and_action_validation": "passed",
+  "browser_display_verified": true,
+  "owner_human_review": "pending",
+  "agent_review_limitation": "Zero is a valid timestamp. The model prose inaccurately attributes the timing violation to zero alone; the owned fixture contains duplicate times [0,0]. Protocol validation does not prove prose accuracy.",
+  "repair_applied": false,
+  "approved_additional_requests": 3,
+  "additional_requests_used": 3,
+  "approved_total_usd": 0.02,
+  "estimated_two_success_response_cost_usd": 0.00068856,
+  "actual_invoice_charge_usd": null,
+  "automatic_retries": 0,
+  "diagnostic": "Generation grammar rejected uniqueItems; local uniqueness validation retained.",
+  "intermediate_response": "HTTP 200 but review_reference action rejected for ANIMATION_TIME_ORDER",
+  "credentials_in_evidence": false
+}

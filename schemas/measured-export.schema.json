@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "type", "asset_sha256", "report_sha256", "inspection", "official_sha256", "official_validation", "human_review", "repair_approved", "limitation"],
+  "properties": {
+    "schema_version": { "const": 1 }, "type": { "const": "measured-inspection" },
+    "asset_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "report_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "official_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "inspection": { "$ref": "https://rig-qa.local/schemas/inspection.schema.json" },
+    "official_validation": { "$ref": "https://rig-qa.local/schemas/conformance.schema.json" },
+    "human_review": { "const": "not recorded" }, "repair_approved": { "const": false },
+    "limitation": { "const": "Measured evidence only. No AI advice or visual, physics or engine certification. Original asset unchanged." }
+  }
+}

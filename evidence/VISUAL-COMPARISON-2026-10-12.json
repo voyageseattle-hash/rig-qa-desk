@@ -1,0 +1,23 @@
+{
+  "date_pacific": "2026-10-12",
+  "work": "Owned workflow evidence diagrams and reviewed prepared-export reinspection",
+  "unit_tests_passed": 74,
+  "browser_tests_passed": 8,
+  "automated_provider_tests": "Mocks and recorded results only; no new provider request",
+  "broken_asset_sha256": "16d2407c563db0c666f9f851007ae92d4da2836163adc45088c844e017b998f1",
+  "prepared_corrected_asset_sha256": "f0883d35ea50dcdbaa7fd8566b7cbeacb68adca0963c957a1d052274c80c6270",
+  "before": { "companion_issues": 2, "official_errors": 3 },
+  "after": { "companion_issues": 0, "official_errors": 0 },
+  "controlled_changes": ["JOINTS_0 vertex 0 component 0: 24 to authored slot 0", "Accessor 7 declared count: 22 to 23 existing binary vectors"],
+  "geometry": "48 actual GLB rest-position vertices; no skinning or deformation simulation",
+  "timeline": "23 input timestamps, LINEAR translation channel 0/node 0, accessor 6 to accessor 7; unmatched outline explains count only",
+  "scope": "Owned procedural workflow demo only; generic uploaded assets do not acquire these diagrams or prepared corrections",
+  "review": "Explicit prepared-change review before separate fresh inspection; AI review decisions stay separate and unset",
+  "export": "Before-and-after evidence includes separate asset hashes, raw measured reports and report digests",
+  "original_changed": false,
+  "automatic_repair": false,
+  "new_provider_requests": 0,
+  "publication": false,
+  "submission": false,
+  "recording": "Updated video and independent package verification live in the accompanying local receipt; this file does not self-certify a recording"
+}

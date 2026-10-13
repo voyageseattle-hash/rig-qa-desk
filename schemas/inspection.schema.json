@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://rig-qa.local/schemas/inspection.schema.json",
+  "title": "Bounded deterministic GLB inspection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "asset_sha256", "byte_length", "inspector_version", "coverage", "summary", "findings"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "asset_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "byte_length": { "type": "integer", "minimum": 0, "maximum": 67108864 },
+    "inspector_version": { "const": "1.0.0" },
+    "coverage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["checked", "not_checked"],
+      "properties": {
+        "checked": { "$ref": "#/definitions/coverageItems" },
+        "not_checked": { "$ref": "#/definitions/coverageItems" }
+      }
+    },
+    "summary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["nodes", "skins", "animations"],
+      "properties": {
+        "nodes": { "type": "integer", "minimum": 0, "maximum": 100000 },
+        "skins": { "type": "integer", "minimum": 0, "maximum": 100000 },
+        "animations": { "type": "integer", "minimum": 0, "maximum": 100000 }
+      }
+    },
+    "findings": {
+      "type": "array", "maxItems": 128,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "code", "severity", "location", "message", "evidence"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^F[0-9]{4}$" },
+          "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]{0,79}$" },
+          "severity": { "enum": ["error", "warning", "info"] },
+          "location": { "type": "string", "maxLength": 256, "pattern": "^(?:/(?:[^~/]|~[01])*)*$" },
+          "message": { "type": "string", "minLength": 1, "maxLength": 600 },
+          "evidence": { "type": "object", "maxProperties": 24 }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "coverageItems": {
+      "type": "array", "maxItems": 64, "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 160 }
+    }
+  }
+}

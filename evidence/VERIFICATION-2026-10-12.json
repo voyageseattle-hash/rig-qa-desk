@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "date_pacific": "2026-10-12",
+  "node_version": "24.14.1",
+  "unit_tests": {
+    "provider_mode": "labeled_mocks_and_recorded_playback_no_paid_network",
+    "failed": 0,
+    "passed": 60
+  },
+  "browser_tests": {
+    "browser": "Microsoft Edge",
+    "provider_mode": "labeled_mocks_and_recorded_playback_no_paid_network",
+    "failed": 0,
+    "passed": 5
+  },
+  "independent_run": {
+    "fresh_npm_ci": true,
+    "outside_cast_repository": true,
+    "source_manifest_verified_before_and_after_tests": true,
+    "unit_and_browser_tests_passed": true
+  },
+  "real_nebius_inference": "real_transport_verified_corrected_validator_revalidated_saved_response_offline",
+  "source_license": "MIT_owner_approved_2026-10-12_companion_and_procedural_fixtures_only",
+  "runtime_files_sha256": {
+    "src/inspect.mjs": "477201acc49176f76ca7d2d8650515a3a3b4887c0d468481ecf17717d3f7d623",
+    "src/recommend.mjs": "cad025c380a40e33d9a006e5fdff181e196fc1c27d1be7b83ae4adbc60ddf2e6",
+    "src/review.mjs": "e8698c0a2e565646f7bba869659c2fff923d020f1dd9cb949d61948e7f629533",
+    "src/server.mjs": "a6b5d3fc17a9e75f5e72473fd37afd4d662a9f40eafa4072d38b357624b8ac88",
+    "public/app.mjs": "99e7806ccd36a9780bac7f1b0f427261e8b8a81f1c31f1314ebdc24c53fa02ba",
+    "public/index.html": "269d904d6caa22510ebd07c617271cf37861205eea9536d5e698689607204d9b",
+    "public/style.css": "78821e787958e00cb0e500835cc6db992149b7cbe252ffb05e98c66e4a97ae5a",
+    "schemas/advice.schema.json": "e9cd393fb50a1f5097eefc22b74a78d4993a14867a64df419b9f6f9d3a41049c",
+    "schemas/inspection.schema.json": "57179d4b2aebfee2cc55f8bb86c720a3c8b865e10fa90d29c4c6cdda13f7e7dc",
+    "schemas/review.schema.json": "4d2b5f5a822a9bf51dc14c44d7ae03a8b47b0b9bd87cd94891d5aed25514ac78",
+    "fixtures/generate.mjs": "4d31712a9a6c1b6cdafb88f2057c382594a25e1c6856ae26abbcdc8e43aec813",
+    "fixtures/README.md": "ea2f4844f3c17fede1bc864cc30462cb2d9e1566810ac970c7336d82362813a2",
+    "scripts/bundle.mjs": "2687651b5c7f1a0b1eaba90b8eb2b5ec225a663342301648e28e2e26f0c17a13",
+    "test/inspect.test.mjs": "ff0169cbf446822f69a43016b2562bdf1acd68fc3220fb845a3abc47c3c59500",
+    "test/recommend.test.mjs": "95e0f6b097ed22055bc0219d902678e6d3190d1d5094d2db825d9d9522d4d1c5",
+    "test/server.test.mjs": "8922fd080755d1c6b853224a371cef9d75ffc1da3a672b789006dc28d432b421",
+    "browser-test/workflow.spec.mjs": "7175191e279ffa1efccd359f5e35a75c3c3dea999d202c4465ad2589cd7fc7b7",
+    "package.json": "6fe22fb5e196a4e4438f37b95be84e32baec13492e1b636039a4ffd1ee5e192c",
+    "package-lock.json": "06daaa085688e229b076e99565575c17205060a0084b451e7d613743f03731bf",
+    "playwright.config.mjs": "811f4236b0f11ee8b8f57bb9c0c026277a7d1751098103837f91072175a90bb7",
+    "scripts/demo.mjs": "f92ba88fc820299ca343c8f9fedad125e6ff82efc35c91a98a0bb4f0f601bf60",
+    "test/demo.test.mjs": "69153dd1124662be0e22a6b1fe92030f03de4abd7321d8e17e04fdc475102cae"
+  },
+  "guided_owner_test": "owner_confirmed_results_visible_and_directed_defer_no_new_provider_requests",
+  "owner_review_evidence": "OWNER-DECISION-2026-10-12.json",
+  "demo_launcher": "forced_offline_ambient_key_and_live_activation_test_passed",
+  "final_narrated_video": "not_recorded",
+  "current_review_resolution": "rejected_inaccurate_explanation_under_user_delegated_judgment",
+  "current_review_evidence": "REVIEW-RESOLUTION-2026-10-12.json",
+  "quality_check_evidence": "LIVE-QUALITY-2026-10-12.json",
+  "quality_check": "real_call_measured_index_explanation_correct_local_false_positive_fixed_offline_revalidation",
+  "record_scope": "Historical independent companion test, before Sites runtime. See current release index for latest source and hosted verification."
+}

@@ -1,0 +1,21 @@
+{
+  "date_pacific": "2026-10-12",
+  "change": "Local official glTF conformance alongside preserved companion and AI evidence",
+  "dependency": "gltf-validator@2.0.0-dev.3.10",
+  "license": "Apache-2.0",
+  "unit_tests_passed": 69,
+  "browser_tests_passed": 6,
+  "provider_tests": "labeled mocks and recorded playback; no paid requests",
+  "preserved_historical_inspection_schema": true,
+  "official_findings_sent_to_model": false,
+  "external_resources": "always refused",
+  "worker_deadline_ms": 5000,
+  "old_generation_limit_mb": 192,
+  "max_messages": 128,
+  "max_concurrent_inspections": 1,
+  "private_assets_in_release": false,
+  "publication": false,
+  "submission": false,
+  "recording": "Existing Kokoro video describes previous source; preserved as historical draft. Updated UI is separately packaged.",
+  "independent_validation_receipt": "Stored privately outside the public-release candidate; verify the new package manifest and run npm ci, npm test, npm run test:browser."
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "date_pacific": "2026-10-12",
+  "new_requests": 4,
+  "automatic_retries": 0,
+  "estimated_total_token_cost_usd": 0.00184668,
+  "invoice_verified": false,
+  "pricing_source": "https://nebius.com/services/token-factory/models/nvidia-nemotron-models-inference",
+  "prices_usd_per_million": {
+    "input": 0.06,
+    "output": 0.24
+  },
+  "private_trial": "Controlled faults on private copy; original unchanged; private asset and full receipt retained outside release",
+  "public_attempts": [
+    {
+      "stage": "initial",
+      "adapter_sha256": "cad025c380a40e33d9a006e5fdff181e196fc1c27d1be7b83ae4adbc60ddf2e6",
+      "advice": {
+        "schema_version": 1,
+        "asset_sha256": "16d2407c563db0c666f9f851007ae92d4da2836163adc45088c844e017b998f1",
+        "summary": "A joint index of 24 is reported as exceeding the joint list of 24, indicating a possible out‑of‑range reference. Additionally, an animation sampler expects 23 output values but only provides 22, causing a mismatch between input count and interpolation.",
+        "limitations": [
+          "AI suggestions are unverified and are not proof of asset correctness.",
+          "Only the listed deterministic checks were performed; unlisted and visual checks remain unverified."
+        ],
+        "recommendations": [
+          {
+            "id": "R0001",
+            "finding_ids": [
+              "F0001"
+            ],
+            "priority": "high",
+            "action": "review_numeric_data",
+            "rationale": "The JOINT_INDEX_RANGE error (F0001) flags that a joint index value of 24 exceeds the defined joint count of 24. This suggests an invalid joint reference that could cause runtime failures. A manual numeric review is needed to verify the joint list bounds and the correctness of the index usage.",
+            "uncertainty": "The report cannot confirm whether the index is truly out of range or if the joint count is misreported."
+          },
+          {
+            "id": "R0002",
+            "finding_ids": [
+              "F0002"
+            ],
+            "priority": "high",
+            "action": "review_animation_channel",
+            "rationale": "The ANIMATION_OUTPUT_COUNT error (F0002) indicates that the animation sampler's output accessor lists 22 values while the expected count is 23, breaking the alignment between input count and interpolation. This may lead to incorrect animation playback. A channel‑specific review is required to inspect the output accessor shape and alignment.",
+            "uncertainty": "The report cannot determine if the missing output value is intentional or a data corruption issue."
+          }
+        ]
+      },
+      "review": "Joint explanation rejected because uncertainty denied a measured fact; channel recommendation suitable for investigation"
+    },
+    {
+      "stage": "cause_uncertainty_clarification",
+      "adapter_sha256": "30d9c6ad8f26c157d13466c6f302a738b5b2f7d9fc1ebed452ca2609b1a191bf",
+      "advice": {
+        "schema_version": 1,
+        "asset_sha256": "16d2407c563db0c666f9f851007ae92d4da2836163adc45088c844e017b998f1",
+        "summary": "Joint index 24 exceeds the defined joint count of 24, and animation output count (22) does not match expected (23) for the translation channel.",
+        "limitations": [
+          "AI suggestions are unverified and are not proof of asset correctness.",
+          "Only the listed deterministic checks were performed; unlisted and visual checks remain unverified."
+        ],
+        "recommendations": [
+          {
+            "id": "R0001",
+            "finding_ids": [
+              "F0001"
+            ],
+            "priority": "high",
+            "action": "review_numeric_data",
+            "rationale": "The joint index 24 is outside the valid range (0‑23) for a mesh that defines 24 joints. Investigate the skin binding and verify the correct joint indices are used.",
+            "uncertainty": "Cannot determine the correct joint to reference without additional source information."
+          },
+          {
+            "id": "R0002",
+            "finding_ids": [
+              "F0002"
+            ],
+            "priority": "high",
+            "action": "review_animation_channel",
+            "rationale": "The animation sampler expects 23 output values but only 22 are provided for the translation channel on node 0, causing a mismatch with the input count and interpolation. Verify the animation data and export settings.",
+            "uncertainty": "The underlying cause cannot be confirmed without reviewing the original animation source."
+          }
+        ]
+      },
+      "review": "Rationales accurate but summary imprecisely said equal-to-count index exceeds count; retained as historical"
+    },
+    {
+      "stage": "final_grounded_wording",
+      "adapter_sha256": "d4801e85f31a157c4cf15448fcc329c431766b13f54a57709f04399c62df808b",
+      "advice": {
+        "schema_version": 1,
+        "asset_sha256": "16d2407c563db0c666f9f851007ae92d4da2836163adc45088c844e017b998f1",
+        "summary": "One joint index is out of range and an animation output count mismatches its expected value, both flagged as errors in the GLB inspection.",
+        "limitations": [
+          "AI suggestions are unverified and are not proof of asset correctness.",
+          "Only the listed deterministic checks were performed; unlisted and visual checks remain unverified."
+        ],
+        "recommendations": [
+          {
+            "id": "R0001",
+            "finding_ids": [
+              "F0001"
+            ],
+            "priority": "high",
+            "action": "review_numeric_data",
+            "rationale": "The joint index 24 is reported as out of range for a skin with 24 joints (valid indices 0‑23). Investigate the source of the erroneous index, verify the joint list order, and correct any export settings that generate an out‑of‑range reference.",
+            "uncertainty": "The report cannot confirm whether the index error originates from the model authoring tool or from an incorrect skin binding configuration."
+          },
+          {
+            "id": "R0002",
+            "finding_ids": [
+              "F0002"
+            ],
+            "priority": "high",
+            "action": "review_animation_channel",
+            "rationale": "The animation output count (22) does not match the expected count (23) for the translation channel of node 0, with interpolation set to LINEAR. Check the mapping of the output accessor to the intended track and re‑export the animation with correct channel settings.",
+            "uncertainty": "The review cannot determine if the mismatch is due to a missing keyframe, an incorrect accessor index, or a different interpolation mode."
+          }
+        ]
+      },
+      "review": "Limited factual rubric passed: valid0–23 range,23versus22 samples,node0 translation,source/export investigation,unknown causes"
+    }
+  ],
+  "review_actor": "agent factual assessment; not independent owner approval",
+  "repair_approved": false,
+  "publication": false,
+  "submission": false
+}

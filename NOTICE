@@ -1,0 +1,17 @@
+The owner approved MIT licensing of the independently authored Rig QA Desk
+source code and its procedural fixture generator and generated fixtures on
+October 12, 2026. This grant applies only within this companion project.
+
+Private Cast Compiler source code, history, profiles and user assets are
+excluded. NVIDIA model weights, upstream model code and service licenses are
+excluded; this project redistributes no model weights. Third-party dependencies
+retain their respective licenses described in docs/THIRD-PARTY.md.
+
+Recorded model responses in evidence are unverified reference material from
+an owned procedural test and are not a grant of rights to upstream models.
+Publication, contest registration, terms acceptance and submission remain
+unauthorized. Local licensing approval does not authorize those actions.
+
+Official glTF validation uses gltf-validator 2.0.0-dev.3.10 by The Khronos
+Group Inc., licensed under Apache-2.0. Dependencies retain upstream licenses
+and notices; this companion's MIT license does not replace them.
