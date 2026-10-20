@@ -9,8 +9,11 @@ retain their respective licenses described in docs/THIRD-PARTY.md.
 
 Recorded model responses in evidence are unverified reference material from
 an owned procedural test and are not a grant of rights to upstream models.
-Publication, contest registration, terms acceptance and submission remain
-unauthorized. Local licensing approval does not authorize those actions.
+The public baseline, existing video and hosted v7 were subsequently approved
+and published. This new local candidate and new review cut remain unpublished
+pending review. Contest registration, new agreement acceptance and final
+submission are separate decisions. Preparation status adds no restriction to
+the MIT license and grants no new spending or production-operation authority.
 
 Official glTF validation uses gltf-validator 2.0.0-dev.3.10 by The Khronos
 Group Inc., licensed under Apache-2.0. Dependencies retain upstream licenses

@@ -10,6 +10,7 @@ const top = ['package.json', 'package-lock.json', 'README.md', 'playwright.confi
 if (existsSync(join(root, '.gitattributes'))) top.push('.gitattributes');
 const siteDirectories = ['app', 'build', 'components', 'db', 'drizzle', 'hooks', 'lib', 'public', 'scripts', 'shared', 'test', 'browser-test', 'vendor', '.openai'];
 const siteTop = ['package.json', 'package-lock.json', 'README.md', 'LICENSE', 'NOTICE', '.gitignore', '.npmrc', '.dev.vars.example', 'cloudflare-env.d.ts', 'components.json', 'drizzle.config.ts', 'eslint.config.mjs', 'next.config.ts', 'playwright.config.mjs', 'postcss.config.mjs', 'tsconfig.json', 'vite.config.ts', 'SHARED-SOURCE-MANIFEST.json'];
+if (existsSync(join(root, 'judge-site', '.gitattributes'))) siteTop.push('.gitattributes');
 for (const name of ['LICENSE', 'NOTICE']) if (existsSync(join(root, name))) top.push(name);
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 
@@ -67,7 +68,7 @@ if (!process.argv.includes('--verify')) {
   }
   const verification = JSON.parse(await readFile(join(root, 'evidence/VERIFICATION-2026-10-12.json'), 'utf8'));
   await writeFile(join(destination, 'SOURCE-MANIFEST.json'), JSON.stringify({ schema_version: 1, source_identity_sha256: sourceIdentity, files: manifest, license_status: verification.source_license, real_nebius_inference: verification.real_nebius_inference }, null, 2));
-  await writeFile(join(destination, 'DRAFT-NOT-FOR-SUBMISSION.txt'), 'Release candidate held for review. MIT approved only for independent companion source and procedural fixtures. Public source/video release, shared judge access and contest submission remain on hold. The local guided demo replays a labeled recorded response; hosted live requests require separately approved credentials, access and a cumulative budget. Consult the dated verification records for the exact tested revision and provider mode.\n');
+  await writeFile(join(destination, 'DRAFT-NOT-FOR-SUBMISSION.txt'), await readFile(join(root, 'DRAFT-NOT-FOR-SUBMISSION.txt')));
 }
 await verifyBundle(destination, manifest);
 console.log(JSON.stringify({ status: 'source_bundle_match', source_identity_sha256: sourceIdentity, bundle: destination, files: Object.keys(manifest).length }));

@@ -3,5 +3,6 @@
 RIG_QA_LOCAL_MOCK="1"
 # Configure hosted secrets and access/budget values in Sites settings only after approval.
 # NEBIUS_API_KEY, NEBIUS_LIVE_ALLOWED, JUDGE_ALLOWED_USER_IDS
+# JUDGE_ACCESS_MODE: allowlist (default), or signed_in after public-access approval
 # JUDGE_BUDGET_GRANT_ID, JUDGE_MAX_ATTEMPTS, JUDGE_MAX_ATTEMPTS_PER_USER
 # JUDGE_RESERVE_PER_ATTEMPT_MICRO_USD, JUDGE_TOTAL_MICRO_USD

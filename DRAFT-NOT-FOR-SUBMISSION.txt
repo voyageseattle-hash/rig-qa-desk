@@ -1,1 +1,9 @@
-Release candidate held for review. MIT approved only for independent companion source and procedural fixtures. Public source/video release, shared judge access and contest submission remain on hold. The local guided demo replays a labeled recorded response; hosted live requests require separately approved credentials, access and a cumulative budget. Consult the dated verification records for the exact tested revision and provider mode.
+NEW LOCAL RELEASE CANDIDATE — REVIEW REQUIRED (October 20, 2026).
+
+The frozen public MIT repository, existing public October 13 video, and approved public hosted v7 already exist. This marker does not revoke those completed approvals.
+
+This new candidate reconciles the public companion with approved v7 source and updated documentation. It has not been pushed/published. The new October 20 Kokoro review video has not replaced the existing public upload. Authenticated Devpost draft/submission status remains unverified; final submission and new agreement acceptance require review.
+
+Current hosted safeguards remain unchanged: real ChatGPT sign-in for AI, five attempts/user, 33 global including historical usage, $0.45 reservations and $14.85 application ceiling, fixed December 15, 2026 noon Pacific cutoff. The last verified remaining allowance is dated in README.md; it is not a future-availability promise or provider billing guarantee. Organizer acceptance of sign-in/quotas and independent judge access remain unresolved.
+
+No new spending authority, credentials, production/D1/access/billing change or publication is granted by local packaging. Preserve the original frozen artifacts, all receipts and private Cast boundaries. See docs/SUBMISSION-CHECKLIST.md and the accompanying exact-source verification report.

@@ -3,6 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Rig QA Desk — evidence to artist handoff",
+  robots: { index: false, follow: false },
   description: "Locate supported rig and animation export faults, review NVIDIA/Nebius investigation advice, and preserve evidence in an artist handoff.",
   icons: {
     icon: "/favicon.svg",

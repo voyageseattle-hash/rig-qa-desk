@@ -3,6 +3,9 @@ declare namespace Cloudflare {
     RIG_QA_LOCAL_MOCK?: string;
     NEBIUS_API_KEY?: string;
     NEBIUS_LIVE_ALLOWED?: string;
+    JUDGE_ACCESS_MODE?: string;
+    JUDGE_ALLOWANCE_OWNER_HASH?: string;
+    JUDGE_ALLOWANCE_UPDATE_APPROVED?: string;
     JUDGE_ALLOWED_USER_IDS?: string;
     JUDGE_BUDGET_GRANT_ID?: string;
     JUDGE_MAX_ATTEMPTS?: string;

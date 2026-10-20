@@ -1,73 +1,55 @@
-# Submission checklist — local draft, October 12, 2026
+# Submission checklist — October 20, 2026 local review candidate
 
-**No publication or submission is authorized.** Check a box only after the action or verification has occurred. Local readiness is distinct from external release approval.
+This checklist distinguishes existing public materials from the **unpublished new candidate** and unapproved replacement video. Preparation is authorized; final contest submission is not.
 
-## Contest facts to recheck before release
+## Verified public and local state
 
-The [official rules](https://nebiusglobalaihackathon.devpost.com/rules), checked October 12, specify:
+- [x] Public MIT repository exists: https://github.com/voyageseattle-hash/rig-qa-desk, current main `0ae2680ff9fcf22dda45c198ce78c6dc2f1389ad`.
+- [x] Public working app exists: https://rig-qa-desk.gsprodev.chatgpt.site, approved hosted v7 source `ba456c2a45ae3ed915fb52166239c51d2d9b10f4`.
+- [x] Activation succeeded October 19, 05:00:33 UTC with environment revision 7; October 20 read-only checks found the successful public/live state preserved.
+- [x] Existing public YouTube demo verified: https://www.youtube.com/watch?v=8gYGElZ8jDw, 169 seconds, correct title/channel and public playback.
+- [x] New 108.513-second Kokoro review cut prepared separately; actual local workflow, recorded-response label, captions, decode and sampled readability/playback checks completed.
+- [x] Original source ZIP, video and historical receipts preserved; no new paid inference or production mutation.
+- [x] New local source candidate incorporates all 160 approved v7 tracked files and documents the old/new source distinction.
+- [ ] Publish this new source candidate — requires later approval.
+- [ ] Approve and publish any replacement video — existing upload remains unchanged.
+- [ ] Attach exact candidate identity and its fresh verification report; do not promote historical counts to current passes.
 
-- **Deadline:** October 30, 2026, 10 AM Pacific.
-- **Runtime:** NVIDIA model use through Nebius Token Factory or AI Cloud.
-- **Source:** public GitHub/GitLab/Bitbucket repository, detectable open-source license, complete runnable code/assets and README.
-- **Access:** working demo/application/test-build URL; free unrestricted judge access through December 15, 2026, noon Pacific. A private site needs testing credentials.
-- **Video:** under three minutes, functioning application footage, public YouTube URL and permitted content.
-- **Entry:** English description, track, platform feedback and an explanation of qualifying new work.
-- **Eligibility:** owner must confirm age, location, conflicts, ownership and representative authority where applicable.
+Historical v7 evidence is 77 Node tests and nine owner/access browser checks from October 19, plus TypeScript/build checks. Earlier 71-unit/7-browser receipts describe older named revisions. New-candidate results must come from its accompanying report.
 
-The [FAQ](https://nebiusglobalaihackathon.devpost.com/details/faqs) was rechecked October 12: an NVIDIA model runtime call through Token Factory qualifies; the entire app need not be hosted on AI Cloud. Recheck before entry. Organizer interpretation determines eligibility. Registration and submission involve terms and personal-information decisions reserved for the owner.
+## Required entry materials and unresolved access question
 
-## Local checks and accompanying final receipt
+The [official rules](https://nebiusglobalaihackathon.devpost.com/rules), reviewed October 20, call for a functioning project, a public runnable open-source repository and README, English description/materials, a working demo/test-build URL, a public YouTube functioning-app video, track selection, platform feedback, and an explanation of qualifying new work. Video **should** be under three minutes; it is not rewritten here as a hard duration “must.”
 
-The source snapshot includes the completed runtime/quality evidence. Final independent-package and rendered-video checks occur after bundling; their signed-off facts are recorded in accompanying receipts to avoid changing the manifest during recording. Do not infer a pass from a checklist placeholder.
+- [x] Proposed track: Best Apps and Agents; current story and platform feedback prepared in [ENTRY-DRAFT.md](ENTRY-DRAFT.md).
+- [x] Model runtime evidence: dated real NVIDIA/Nebius receipts; recorded playback is clearly distinguished from new inference.
+- [x] Node companion no-spend setup and recorded demo instructions prepared.
+- [x] Current source scopes distinguish companion structural/conformance checks, local character measurements and fixed-fixture hosted AI.
+- [ ] Verify the exact authenticated editor questions, limits and required fields; no schema is inferred from a generic form.
+- [ ] Verify actual entrant/team/organization identity, eligibility, ownership, rights and representative authority privately.
+- [ ] Confirm all third-party/model/service license statements and required notices for the final chosen artifact.
+- [ ] Review final URLs and exact source/video versions together.
 
-Complete locally before release approval
+The current public Site permits viewing by URL and optional AI for real ChatGPT-signed-in accounts. Approved limits are five attempts per account, 33 globally including history, $0.45 per attempt and $14.85 application reservations. At **October 20, 08:45:17 UTC**, one attempt/$0.45 was consumed, no request was in flight and **32 remained at that observation**. Failures/missing usage do not refund allowance, and uncertain provider outcomes retain the global lock. This does not guarantee provider billing or uninterrupted availability.
 
-- [x] Independent source scope chosen; MIT license applied to new companion source and procedural fixtures.
-- [x] Pinned NVIDIA/Nebius runtime implemented and prior real requests recorded.
-- [x] Official local conformance validation and measured-check export implemented.
-- [x] Prior refinement passed 69 unit checks and 6 browser tests in an independent package.
-- [x] Realistic flawed-asset test receipt saved with expected facts, actual measurements, fixture provenance and model quality assessment.
-- [x] New inference cost/usage recorded within the current task's below-$1 authorization; no automatic retries or billing changes.
-- [ ] Final source manifest generated after all final edits; independent install verifies every allowlisted file.
-- [ ] Final tests passed against that exact source; automated mocks explicitly labeled.
-- [ ] Final Kokoro video rendered and watched; captions, legibility, audio and duration verified.
-- [ ] Video shows inspection → evidence-linked recommendations → human review/export and labels recorded playback.
-- [ ] Video/package source identity agrees; any older screenshots or receipts clearly marked historical.
-- [x] Entry text and platform feedback match final evidence without invented savings, visual-quality guarantees or future successes.
-- [ ] Release-candidate scan excludes credentials, private assets/derivatives, profile data, private history, user paths and unrelated work.
-- [x] Third-party license/NOTICE requirements retained; NVIDIA weights not described as MIT or redistributed.
+New paid requests stop December 15, 2026 at noon Pacific (`2026-12-15T20:00:00Z`). Local checks and recorded playback remain free. The rules require free unrestricted judge access through the end of judging; organizer acceptance of personal sign-in and finite quotas remains **unconfirmed**. Do not silently remove limits, add funding or promise uninterrupted access.
 
-## Judge access decision — unresolved
+- [ ] Resolve or explicitly review the sign-in/quota-versus-rules ambiguity before the final representation.
+- [ ] Verify independent non-owner access and usability; local mocks, owner checks and anonymous rejection tests are not a real non-owner paid acceptance.
+- [ ] Confirm the responsible operator and ongoing availability arrangement through judging without assuming more spending authority.
 
-Recorded playback demonstrates previously observed behavior and lets judges rehearse without spending. It must remain labeled; it is not new runtime inference. A local-only address is not a public judge-access URL.
+## Duplicate-safe Devpost and agreement gate
 
-Prepare the independent downloadable test build and clear installation instructions. Then select an approved way for judges to exercise the real AI integration free of charge. Requiring judges to fund a new provider account is not an adequate default. A hosted service would need a reviewed credential boundary, spending controls and a separate access/deployment decision; the current loopback server is not ready to expose directly on the internet. Do not place the owner's provider key in a download or publish it as testing credentials.
+The authenticated [Nebius My projects page](https://devpost.com/submit-to/30790-nebius-x-nvidia-global-ai-hackathon/manage/submissions) has not been inspected in this preparation. Anonymous “register” text establishes no account-specific status.
 
-- [ ] Owner approves the exact test-build/hosting and free-inference access arrangement.
-- [ ] Access instructions verified from a clean machine/account.
-- [ ] Responsible person and continued availability through judging agreed.
+- [ ] Inspect the signed-in existing-project list before any create/save; reuse an existing Rig QA draft if present.
+- [ ] Complete/save only the reviewed draft within existing authorization, stopping on new material agreements.
+- [ ] Present exact registration/submission controls before accepting any new terms or representations.
+- [ ] Obtain explicit approval of the completed fields/URLs and final submission.
+- [ ] Submit only after that approval and verify the actual receipt/status.
 
-## Owner decisions required before external action
+The official rules include eligibility and representative authority, original work/necessary rights, matching functionality, judging use, promotional/publicity permissions and release/indemnity conditions. These are review topics, not terms accepted on the owner's behalf. No independent final-submission status is claimed.
 
-- [ ] Confirm entrant identity, eligibility and any team/organization representative details privately.
-- [ ] Approve exact independent public repository, final commit/package and permitted assets.
-- [ ] Approve final video, public YouTube upload/channel and public text/screenshots.
-- [ ] Approve any judge accounts, access grants, hosting or additional spending beyond this task.
-- [ ] Owner registers or explicitly authorizes registration and relevant terms acceptance.
-- [ ] Owner approves the completed submission fields and URLs, then explicitly authorizes submission.
+## Preserve boundaries
 
-## Final handoff fields
-
-| Field | Value |
-| --- | --- |
-| Final source SHA256 | See final SOURCE-MANIFEST.json |
-| Independent package verification receipt | See accompanying final verification receipt |
-| Realistic test evidence / result | Awaiting final receipt |
-| Final video path / SHA256 / duration | See accompanying recording verification, MP4 and captions |
-| Public repository URL | Not created |
-| Working build / judge-access URL | Not granted |
-| Public YouTube URL | Not uploaded |
-| Entrant / representative confirmed | Owner action pending |
-| Terms, publication and submission approvals | Pending; no action taken |
-
-Keep credentials and personal details out of this public-release candidate document. Export decisions record review, not permission to repair the asset.
+No public push, replacement upload, credential creation/rotation, billing change, new paid test, D1/schema/counter/receipt mutation, broader access or final submission is included in this candidate. The old below-$1 testing allowance is historical, not renewed authority. Private Cast code/history, private character data/derivatives and NVIDIA weights remain excluded. The new source candidate and new video require separate publication review even though older materials are already public.

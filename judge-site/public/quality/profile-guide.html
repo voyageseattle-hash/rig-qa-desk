@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Character allowances · Rig QA Desk</title>
+<style>body{color-scheme:dark;background:#0b1520;color:#e9f2f6;font:16px/1.7 system-ui,sans-serif;max-width:900px;margin:auto;padding:32px 22px}a{color:#83e2c7}h1,h2{line-height:1.2}h2{margin-top:38px}p,li{color:#b1c6d2}pre{padding:18px;background:#132332;border:1px solid #304653;border-radius:8px;overflow:auto;font-size:13px}code{overflow-wrap:anywhere}.note{border-left:4px solid #83e2c7;padding:12px 18px;background:#132332}a:focus-visible{outline:3px solid #ffe0a4;outline-offset:4px}</style>
+<a href="/">← Rig QA Desk</a><h1>Character allowances</h1>
+<p>Use <strong>Read rig and prepare allowances</strong> to get zero-based node and animation indices. The starting profile pairs unambiguous Left/Right and L/R names and selects up to four clips. Review it: names and default thresholds do not establish intended anatomy.</p>
+<p class="note">Raw GLBs and profiles remain in the local browser worker. No model request is made. Reports bind the exact character, counterpart, profile and measured output with SHA256. A saved profile bound to another file is rejected.</p>
+<h2>Results and sampling</h2><p><strong>Measured</strong> means the configured data was evaluated at reported poses. <strong>Partial</strong> means unsupported data or a work limit prevented completion. <strong>Not checked</strong> means required rules or data were absent. No result certifies visual or physical quality.</p>
+<p>Core glTF uses metres and Y-up. Distances use evaluated GLB world coordinates including node scales; times are seconds and angles degrees. <code>clips</code> selects at most eight animations. <code>samplesPerClip</code> adds 2–48 uniform samples; animation keys and interval midpoints are included within the 256-pose total budget. Unselected clips and limits remain explicit. Contact/support intervals use evenly spaced samples.</p>
+<h2>Rest symmetry</h2><pre>"symmetry": {
+  "pairs": [[3, 8], [4, 9]], "relativeTolerance": 0.10,
+  "ignoredPairs": [],
+  "surface": {"axis": 0, "plane": 0, "tolerance": 0.01,
+              "maxUnmatchedFraction": 0.05}
+}</pre><p>Joint segments run from each node's parent to that node. Relative difference is absolute length difference divided by the larger length. Record intended asymmetry in <code>ignoredPairs</code>. Optional surface symmetry mirrors evaluated rest vertices around the explicit axis/plane and checks nearby points within tolerance. It does not infer bone tails, topology correspondence or intended anatomy. A posed model may need a different plane or no surface rule.</p>
+<h2>Signed hinge limits</h2><pre>"jointLimits": [{"parent": 5, "joint": 4, "child": 3,
+  "axis": [0, 0, 1], "minDegrees": -5, "maxDegrees": 135,
+  "relativeToRest": true}]</pre><p>Use a direct three-node chain. The hinge axis is in the parent node's local coordinates. Positive bend follows the right-hand rule; by default the rest bend is subtracted. Set <code>relativeToRest: false</code> for the direct signed angle. Verify sign and intended range on a known pose; knee/elbow semantics are not guessed.</p>
+<h2>Mesh deformation and foot penetration</h2><pre>"deformation": {"minEdgeRatio": 0.25, "maxEdgeRatio": 2.5,
+                "minAreaRatio": 0.10},
+"ground": {"axis": 1, "height": 0, "tolerance": 0.01,
+           "feet": [{"node": 6, "point": [0, -0.03, 0]}]}</pre><p>Triangle edge lengths and areas are compared with the evaluated rest mesh, using linear-blend skinning, inverse bind matrices and up to four joint influences. Configure intentional squash/stretch. The foot point is local to its node: place it at the intended sole. Measuring a joint above the plane does not prove visible foot clearance.</p>
+<h2>Motion and clip joins</h2><pre>"motion": {"maxJointDegreesPerSecond": 1080,
+           "maxNodeUnitsPerSecond": 10},
+"transitions": [{"from": 0, "to": 1, "nodes": [0, 3, 6],
+  "maxDistance": 0.05, "maxAngleDegrees": 20,
+  "alignRootTranslation": false}]</pre><p>Motion rates compare sampled world positions and local quaternion rotations. A transition compares source end to destination start, or explicit <code>fromTime</code>/<code>toTime</code>. Optional <code>alignRootTranslation</code> subtracts each endpoint's <code>rootNode</code> position (first hierarchy root by default). It aligns translation only, not heading. Gameplay states and engine blends are not inferred.</p>
+<h2>Two-character grip and release</h2><pre>"otherTransform": {"translation": [0, 0, 0],
+  "rotation": [0, 0, 0, 1], "scale": [1, 1, 1]},
+"contacts": [{"aNode": 3, "bNode": 9,
+  "animation": 0, "otherAnimation": 0, "start": 0.2, "end": 0.7,
+  "pointA": [0, 0, 0], "pointB": [0, 0, 0],
+  "maxDistance": 0.03, "maxDrift": 0.02, "phase": "grip"}]</pre><p>Select a counterpart GLB. Points are local to their respective nodes. Counterpart placement is outside its evaluated world transform. Both clips use the same configured times; timeline synchronization is not inferred. Gap is point distance; drift is change in their relative vector from the interval start. Use <code>phase: "release"</code> with a single instant (<code>start === end</code>) or interval for release alignment.</p>
+<h2>Landing support</h2><pre>"landings": [{"node": 6, "point": [0, -0.03, 0],
+  "animation": 1, "start": 0.7, "end": 1, "axis": 1,
+  "height": 0, "tolerance": 0.01, "maxSlide": 0.03}]</pre><p>Use intervals where the anchor must remain planted. This measures absolute plane distance and horizontal drift from the interval start. It does not establish balance, weight or contact forces.</p>
+<h2>Bounds and unsupported data</h2><p>Limits: 32 MiB per GLB, 4 MiB JSON, 1,024 nodes, 64 clips, two million decoded scalars, 30,000 evaluated vertices, three million work units, 256 poses, 128 findings, 64 KiB profiles and a 15-second terminable worker. Sparse/compressed accessors, required extensions, morph animation and additional influence sets are rejected or excluded with explicit incomplete coverage. External buffers are never fetched.</p>
+<p>Materials, self-intersection, collisions, continuous-time extrema, engine overrides, cloth and physics remain separate reviews. Original files are never repaired. A measured export records no human approval.</p>
+<h2>References</h2><p>Transforms, skinning and interpolation follow the <a href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html">Khronos glTF 2.0 specification</a> and official tutorials on <a href="https://github.khronos.org/glTF-Tutorials/gltfTutorial/gltfTutorial_020_Skins.html">skinning</a> and <a href="https://github.khronos.org/glTF-Tutorials/gltfTutorial/gltfTutorial_007_Animations.html">animation</a>. Rig QA thresholds are configurable screening policy, not Khronos conformance rules.</p></html>
